@@ -1,0 +1,3 @@
+1. why array is called as non primitive data structure?
+Ans :An array is called a non-primitive data structure because it groups together multiple primitive data elements or objects of the same type into a single structured data type.
+
