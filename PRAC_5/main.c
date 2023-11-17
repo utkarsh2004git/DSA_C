@@ -26,30 +26,32 @@ void create(int ele){
 // Adding element in linked list
 
 void add_begin(int ele){
-    struct Dnode *temp;
-    temp->data=ele;
-    temp->next=head;
-    head->prev=temp;
-    head=temp;
+    struct Dnode * newnode=(struct Dnode*)malloc(sizeof(struct Dnode));
+    newnode->data=ele;
+    head->prev=newnode;
+    newnode->next=head;
+    newnode->prev=NULL;
+    newnode=head;
     printf("Element Added at begin\n");
 }
 
 void add_end(int ele){
+    struct Dnode *newnode=(struct Dnode*)malloc(sizeof(struct Dnode));
     struct Dnode *temp,*prev;
     temp=head;
-    while(temp->next!=NULL){
-        prev=temp;
+    while (temp->next!=NULL)
+    {   prev=temp;
         temp=temp->next;
     }
-    temp->data=ele;
-    temp->prev=prev;
-    temp->next=NULL;
+    newnode->data=ele;
+    temp->next=newnode;
+    newnode->prev=temp;
     printf("Element Added at end\n");
 }
 int main(){
     create(10);
-    // add_begin(5);
-    // add_begin(5);
+    add_begin(5);
+    add_begin(5);
     add_end(5);
     return 0;
 }
