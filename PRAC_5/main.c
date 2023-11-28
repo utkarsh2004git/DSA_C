@@ -48,6 +48,23 @@ void add_end(int ele){
     newnode->prev=temp;
     printf("Element Added at end\n");
 }
+
+void insert_bet(int ele ,int pos){
+    struct Dnode *newnode,*temp,*prev;
+    newnode=(struct Dnode *)malloc(sizeof(struct Dnode));
+    int count=1;
+    temp=head;
+    while(count<pos &&temp->next!=NULL ){
+        prev=temp;
+        temp=temp->next;
+        count++;
+    }
+    newnode->data=ele;
+    prev->next=newnode;
+    newnode->prev=prev;
+    temp->prev=newnode;
+}
+
 int main(){
     create(10);
     add_begin(5);
